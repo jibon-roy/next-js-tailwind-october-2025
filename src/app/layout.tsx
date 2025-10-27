@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://example.com/og-image.jpg",
+        url: "/icons/1200x630.png",
         width: 1200,
         height: 630,
         alt: "NextJS Starter Pack OG Image",
@@ -106,8 +106,8 @@ export const metadata: Metadata = {
       { url: "/icon/icon.svg", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/icon/apple-touch-icon.png", sizes: "180x180" },
-      { url: "/icon/apple-icon-192x192.png", sizes: "192x192" },
+      { url: "/icon/180x180.png", sizes: "180x180" },
+      { url: "/icon/192x192.png", sizes: "192x192" },
     ],
     shortcut: ["/icon/favicon.ico"],
   },

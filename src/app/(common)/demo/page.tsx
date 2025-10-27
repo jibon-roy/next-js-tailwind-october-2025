@@ -1,5 +1,6 @@
 import { fetchData } from "@/src/lib/helpers/fetchData";
 import { siteMetadata } from "@/src/lib/SEO/generateMetadata";
+import Link from "next/link";
 
 export async function generateMetadata() {
   return siteMetadata({
@@ -37,9 +38,16 @@ export default async function DemoPage() {
       <div className="my-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {json2?.map((post) => (
-            <div key={post.id} className="mb-8 border-b pb-4">
-              <h2 className="text-2xl font-bold">{post.title}</h2>
-              <p className="mt-2 text-gray-700">{post.body}</p>
+            <div
+              key={post.id}
+              className="mb-8 border group cursor-pointer rounded-2xl p-4"
+            >
+              <Link href={`/demo/${post.id}`}>
+                <h2 className="text-2xl hover:text-yellow-500 font-bold">
+                  {post.title}
+                </h2>
+                <p className="mt-2 text-gray-700">{post.body}</p>
+              </Link>
             </div>
           ))}
         </div>

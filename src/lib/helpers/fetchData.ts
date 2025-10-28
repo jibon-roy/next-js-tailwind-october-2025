@@ -1,7 +1,7 @@
 import { envConfig } from "./envConfig";
 
 /**
- * ✅ Extended Fetch Options supporting Next.js 16 caching/revalidation
+ * Extended Fetch Options supporting Next.js 16 caching/revalidation
  */
 export interface FetchOptions extends RequestInit {
   next?: {
@@ -13,7 +13,7 @@ export interface FetchOptions extends RequestInit {
 }
 
 /**
- * ✅ Generic Fetch Response Wrapper
+ * Generic Fetch Response Wrapper
  */
 export interface FetchResponse<T> {
   isSuccess: boolean;
@@ -24,7 +24,7 @@ export interface FetchResponse<T> {
 }
 
 /**
- * ✅ Builds a complete query string safely
+ * Builds a complete query string safely
  */
 const buildQueryString = (
   params?: Record<string, string | number | boolean>
@@ -57,12 +57,12 @@ export async function fetchData<T>(
     : null;
 
   try {
-    // ✅ Construct full URL safely
+    // Construct full URL safely
     const baseUrl = envConfig?.baseApi ?? "";
     const queryString = buildQueryString(options.params);
     const finalUrl = `${baseUrl}/${endpoint}${queryString}`;
 
-    // ✅ Build final fetch options
+    // Build final fetch options
     const fetchOptions: FetchOptions = {
       ...options,
       signal: controller.signal,
@@ -75,7 +75,7 @@ export async function fetchData<T>(
 
     const res = await fetch(finalUrl, fetchOptions);
 
-    // ✅ Handle non-OK response
+    // Handle non-OK response
     if (!res.ok) {
       let errMsg = `HTTP ${res.status} - ${res.statusText}`;
       try {
@@ -87,7 +87,7 @@ export async function fetchData<T>(
       throw new Error(errMsg);
     }
 
-    // ✅ Safely parse JSON
+    // Safely parse JSON
     let data: T | undefined;
     try {
       data = (await res.json()) as T;

@@ -6,8 +6,8 @@ export async function generateMetadata() {
   return siteMetadata({
     title: "About Us",
     description:
-      "Learn about MindRelaxatiiion’s mission — promoting peace, spirituality, and mindfulness.",
-    url: "https://mindrelaxatiiion.com/about",
+      "Learn about This page’s mission — promoting peace, spirituality, and mindfulness.",
+    url: "https://example.com/demo",
   });
 }
 

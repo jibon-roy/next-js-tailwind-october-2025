@@ -27,14 +27,6 @@ html.dark,
   --foreground: #ededed;
 }
 
-/* Respect system preference as a fallback for users that didn't pick a theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-
-}
 
 body {
   background: var(--background);

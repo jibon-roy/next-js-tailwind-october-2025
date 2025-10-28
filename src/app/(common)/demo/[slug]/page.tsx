@@ -100,13 +100,13 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <article className="max-w-3xl mx-auto py-12 px-4">
       <header className="mb-8">
-        <h1 className="text-3xl md:text-4xl  text-black dark:text-gray-500 font-extrabold leading-tight">
+        <h1 className="text-3xl md:text-4xl  text-black dark:text-white font-extrabold leading-tight">
           {post.title}
         </h1>
-        <div className="mt-3 flex items-center  text-sm text-black dark:text-gray-500">
+        <div className="mt-3 flex items-center  text-sm text-black dark:text-white">
           <span>
             By{" "}
-            <span className="font-medium  text-black dark:text-gray-700">
+            <span className="font-medium  text-black dark:text-white">
               {post.author}
             </span>
           </span>
@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </header>
 
-      <section className="prose prose-lg  text-black dark:text-gray-500 dark:prose-invert">
+      <section className="prose prose-lg  text-black dark:text-white dark:prose-invert">
         {post.body.split("\n").map((para: string, i: number) => (
           <p key={i}>{para}</p>
         ))}

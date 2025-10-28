@@ -1,17 +1,28 @@
+/* import tailwind v4 core (one line) */
 @import "tailwindcss";
 
+/* 
+  Make Tailwind's `dark:` utilities apply when `.dark` is present,
+  and also support `data-theme="dark"` / `data-mode="dark"` if you ever use them.
+  This is the correct v4 way — no JS config file required.
+*/
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-mode="dark"], [data-theme="dark"] * , [data-mode="dark"] *));
+
+/* Theme variables (light default) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Class- or attribute-driven dark mode (overrides variables) */
+html.dark,
+[data-theme="dark"],
+[data-mode="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
+/* Respect system preference as a fallback for users that didn't pick a theme */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -23,4 +34,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 160ms ease, color 160ms ease;
 }

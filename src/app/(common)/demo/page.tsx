@@ -43,10 +43,12 @@ export default async function DemoPage() {
               className="mb-8 border group cursor-pointer rounded-2xl p-4"
             >
               <Link href={`/demo/${post.id}`}>
-                <h2 className="text-2xl hover:text-yellow-500 font-bold">
-                  {post.title}
-                </h2>
-                <p className="mt-2 text-gray-700">{post.body}</p>
+                <div>
+                  <h2 className="text-2xl hover:text-yellow-500 font-bold">
+                    {post.title}
+                  </h2>
+                  <p className="mt-2 text-gray-700">{post.body}</p>
+                </div>
               </Link>
             </div>
           ))}

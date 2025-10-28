@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export async function generateMetadata() {
   return siteMetadata({
-    title: "About Us",
+    title: "Demo",
     description:
       "Learn about This page’s mission — promoting peace, spirituality, and mindfulness.",
     url: "https://example.com/demo",

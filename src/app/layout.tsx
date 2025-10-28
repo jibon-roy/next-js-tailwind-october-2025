@@ -161,7 +161,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body className={`antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="bg-zinc-50 dark:bg-black">{children}</div>
+          <div className="bg-white dark:bg-black">{children}</div>
         </ThemeProvider>
       </body>
     </html>

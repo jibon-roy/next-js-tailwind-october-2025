@@ -13,7 +13,7 @@ export async function generateMetadata() {
 
 export default async function DemoPage() {
   // Server component fetch for the post content
-  const { data } = await fetchData(`/posts`);
+  const { data } = await fetchData(`/posts`, {}, "POSTS");
   const json2 = data as
     | {
         id?: number;

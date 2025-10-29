@@ -1,6 +1,5 @@
+import envConfig from "@/src/utils/envConfig";
 
-
-import { envConfig } from "./envConfig";
 
 /**
  * Centralized Constant Tags — not overridable anywhere else
@@ -76,7 +75,7 @@ export async function fetchData<T>(
 
   const executeRequest = async (): Promise<FetchResponse<T>> => {
     try {
-      const baseUrl = envConfig?.baseApi ?? "";
+      const baseUrl = envConfig?.API_URL ?? "";
       const queryString = buildQueryString(options.params);
       const finalUrl = `${baseUrl}/${endpoint}${queryString}`;
 

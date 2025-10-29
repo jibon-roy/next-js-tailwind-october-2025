@@ -1,52 +1,11 @@
 // src/app/api/sitemap/route.ts
 import { NextResponse } from "next/server";
 
-import { getAllPages } from "@/src/lib/SEO/pages"; // Optional: if you have static pages
-import { getAllPostsSlugs } from "@/src/lib/SEO/posts";
-
-export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
-
-  // Example: fetch dynamic slugs from DB
-  const posts = await getAllPostsSlugs(); // returns array of { slug: string, updatedAt: Date }
-  const pages = await getAllPages(); // returns array of { path: string, updatedAt: Date }
-
-  // Build sitemap XML
-  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Static pages -->
-  ${pages
-    .map(
-      (page) => `
-    <url>
-      <loc>${baseUrl}${page.path}</loc>
-      <lastmod>${page.updatedAt.toISOString()}</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-    </url>
-  `
-    )
-    .join("")}
-
-  <!-- Dynamic posts -->
-  ${posts
-    .map(
-      (post) => `
-    <url>
-      <loc>${baseUrl}/posts/${post.slug}</loc>
-      <lastmod>${post.updatedAt.toISOString()}</lastmod>
-      <changefreq>daily</changefreq>
-      <priority>0.9</priority>
-    </url>
-  `
-    )
-    .join("")}
-</urlset>
-`;
-
-  return new NextResponse(sitemapXml.trim(), {
-    headers: {
-      "Content-Type": "application/xml",
-    },
-  });
+// Deprecated: sitemap is now generated into /sitemap.xml by next-sitemap.
+// Use the incoming request URL as the base so we always redirect to an absolute URL.
+export async function GET(request: Request) {
+  // Build an absolute URL for the static sitemap to satisfy Next.js prerender.
+  // new URL(relative, request.url) will produce an absolute URL using the request origin.
+  const sitemapUrl = new URL("/sitemap.xml", request.url);
+  return NextResponse.redirect(sitemapUrl);
 }

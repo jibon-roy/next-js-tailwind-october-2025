@@ -1,7 +1,6 @@
-// src/app/api/robot/route.ts
 import { NextResponse } from "next/server";
 
-// Deprecated: this route previously served robots.txt. Keep as redirect to static file.
+// Deprecated: robots.txt is now generated into /robots.txt by next-sitemap.
 export async function GET() {
   return NextResponse.redirect("/robots.txt");
 }

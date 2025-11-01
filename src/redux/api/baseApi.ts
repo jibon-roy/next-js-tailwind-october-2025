@@ -60,8 +60,13 @@ const baseQueryWithRefreshToken: BaseQueryFn<
       const data = await res.json();
       if (data?.success) {
         const user = (api.getState() as RootState).auth.user;
+        // Note: set only the new access_token; keep user as-is but we do not rely on it for auth
         api.dispatch(
-          setUser({ user, token: data.data.token, refresh_token: refreshToken })
+          setUser({
+            user,
+            access_token: data.data.token,
+            refresh_token: refreshToken,
+          })
         );
 
         // Retry the original query with the new token
@@ -78,8 +83,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
           if (result.isConfirmed) {
             api.dispatch(logout());
             signOut();
-          }
-          else if (result.isDismissed) {
+          } else if (result.isDismissed) {
             api.dispatch(logout());
             signOut();
           }
@@ -96,8 +100,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
-  tagTypes: [
-    "user", "example"
-  ],
+  tagTypes: ["user", "example"],
   endpoints: () => ({}),
 });

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import ReduxStoreProvider from "@/src/redux/ReduxStoreProvider";
 
 export const metadata: Metadata = {
   // Basic Info
@@ -160,9 +161,11 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <body className={`antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="bg-white dark:bg-black">{children}</div>
-        </ThemeProvider>
+        <ReduxStoreProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <div className="bg-white dark:bg-black">{children}</div>
+          </ThemeProvider>
+        </ReduxStoreProvider>
       </body>
     </html>
   );

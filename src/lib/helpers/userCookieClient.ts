@@ -9,7 +9,7 @@ type CommonOk = { ok: true };
  */
 export async function getCurrentUser(): Promise<BaseUser | null> {
   const res = await fetchData<GetUserResponse>(
-    "/api/user",
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/user`,
     {
       credentials: "include",
       // prevent caching when reading session-like data
@@ -25,7 +25,7 @@ export async function getCurrentUser(): Promise<BaseUser | null> {
  */
 export async function initUserCookieRemote(): Promise<boolean> {
   const res = await fetchData<CommonOk & { initialized: boolean }>(
-    "/api/user/init",
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/init`,
     { credentials: "include" },
     "USERS"
   );
@@ -39,7 +39,7 @@ export async function setUserRemote<
   T extends BaseUser | Record<string, unknown> | null
 >(user: T): Promise<boolean> {
   const res = await fetchData<CommonOk & { saved?: boolean }>(
-    "/api/user",
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/user`,
     {
       method: "POST",
       body: JSON.stringify(user),
@@ -55,7 +55,7 @@ export async function setUserRemote<
  */
 export async function logoutRemote(): Promise<boolean> {
   const res = await fetchData<CommonOk & { loggedOut?: boolean }>(
-    "/api/user/logout",
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/logout`,
     { method: "POST", credentials: "include" },
     "USERS"
   );

@@ -74,18 +74,11 @@ export async function fetchData<T>(
 
   const executeRequest = async (): Promise<FetchResponse<T>> => {
     try {
+      const baseUrl = endpoint?.includes("http") ? "" : envConfig?.API_URL;
       const queryString = buildQueryString(options.params);
-      const isAbsolute = /^https?:\/\//i.test(endpoint);
-      const isRooted = endpoint.startsWith("/");
-      const apiBase = envConfig?.API_URL ?? "";
-      const appBase =
-        (envConfig as unknown as { BASE_URL?: string })?.BASE_URL ?? "";
-
-      const finalUrl = isAbsolute
-        ? `${endpoint}${queryString}`
-        : isRooted
-        ? `${appBase}${endpoint}${queryString}`
-        : `${apiBase}/${endpoint}${queryString}`;
+      const finalUrl = endpoint?.includes("http")
+        ? endpoint
+        : `${baseUrl}/${endpoint}${queryString}`;
 
       const fetchOptions: FetchOptions = {
         ...options,

@@ -14,6 +14,7 @@ export async function generateMetadata() {
 export default async function DemoPage() {
   // Server component fetch for the post content
   const { data } = await fetchData(`/posts`, {}, "POSTS");
+
   const json2 = data as
     | {
         id?: number;
@@ -22,7 +23,7 @@ export default async function DemoPage() {
         userId?: number;
       }[]
     | undefined;
-
+  console.log(data);
   if (!data) {
     return (
       <div className="max-w-3xl mx-auto py-16 px-4 text-center">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import ReduxStoreProvider from "@/src/redux/ReduxStoreProvider";
+import ServiceWorkerRegister from "@/src/components/pwa/ServiceWorkerRegister";
 
 export const metadata: Metadata = {
   // Basic Info
@@ -100,7 +101,7 @@ export const metadata: Metadata = {
       { url: "/icon/180x180.png", sizes: "180x180" },
       { url: "/icon/192x192.png", sizes: "192x192" },
     ],
-    shortcut: ["/icon/favicon.ico"],
+    shortcut: ["/icon/192x192.png"],
   },
 
   // Apple Web App Config
@@ -164,6 +165,7 @@ export default function RootLayout({
         <ReduxStoreProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="bg-white dark:bg-black">{children}</div>
+            <ServiceWorkerRegister />
           </ThemeProvider>
         </ReduxStoreProvider>
       </body>

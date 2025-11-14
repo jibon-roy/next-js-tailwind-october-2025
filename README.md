@@ -50,6 +50,7 @@ See `package.json` for the full scripts list.
 - **`/public`**: Static assets, `sw.js`, `offline.html`, and `site.webmanifest`.
 - **`/README.md`**: This file.
 
+
 **Environment / Secrets**
 
 - The project may use environment variables for auth and APIs. Example files in the repo include `example.env`. Never commit production secrets to the repo.

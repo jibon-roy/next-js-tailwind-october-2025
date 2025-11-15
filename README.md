@@ -61,8 +61,8 @@ See `package.json` for the full scripts list.
 Create a local env file for development (not checked in):
 
 ```pwsh
-copy example.env .env.local
-# then edit .env.local with secrets
+copy example.env .env
+# then edit .env with secrets
 ```
 
 **Performance & Scaling Recommendations**

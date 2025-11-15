@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { motion, HTMLMotionProps } from "framer-motion";
 

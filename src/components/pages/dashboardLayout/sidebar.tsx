@@ -14,7 +14,7 @@ import { Home } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 // import Image from "next/image";
-import { logoutHandler } from "@/src/utils/handleLogout";
+import { logoutHandler } from "@/utils/handleLogout";
 import { useRouter, usePathname } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { FcCdLogo } from "react-icons/fc";

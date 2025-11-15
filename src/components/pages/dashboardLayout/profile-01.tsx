@@ -1,4 +1,4 @@
-import { logoutHandler } from "@/src/utils/handleLogout";
+import { logoutHandler } from "@/utils/handleLogout";
 import { LogOut, MoveUpRight, UserRound } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

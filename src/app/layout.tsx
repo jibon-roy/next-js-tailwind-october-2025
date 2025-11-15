@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import ReduxStoreProvider from "@/src/redux/ReduxStoreProvider";
-import ServiceWorkerRegister from "@/src/components/pwa/ServiceWorkerRegister";
+import ReduxStoreProvider from "@/redux/ReduxStoreProvider";
+import ServiceWorkerRegister from "@/components/pwa/ServiceWorkerRegister";
 
 export const metadata: Metadata = {
   // Basic Info

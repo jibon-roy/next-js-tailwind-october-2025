@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "../logo/Logo";
-import { Button } from "@/src/components/ui/button/Button";
+import { Button } from "@/components/ui/button/Button";
 
 const NavBarRounded = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);

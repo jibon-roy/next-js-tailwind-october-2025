@@ -1,5 +1,5 @@
-import { fetchData } from "@/src/lib/helpers/fetchData";
-import { siteMetadata } from "@/src/lib/SEO/generateMetadata";
+import { fetchData } from "@/lib/helpers/fetchData";
+import { siteMetadata } from "@/lib/SEO/generateMetadata";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

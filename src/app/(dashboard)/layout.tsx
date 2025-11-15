@@ -1,5 +1,5 @@
-import Sidebar from "@/src/components/pages/dashboardLayout/sidebar";
-import TopNav from "@/src/components/pages/dashboardLayout/top-nav";
+import Sidebar from "@/components/pages/dashboardLayout/sidebar";
+import TopNav from "@/components/pages/dashboardLayout/top-nav";
 
 export default function RootLayout({
   children,

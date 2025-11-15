@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { NavItem, DrawerProps, DropdownItem } from "./types";
 import { useSelector } from "react-redux";
-import { RootState } from "@/src/redux/store";
+import { RootState } from "@/redux/store";
 
 export const Drawer = ({
   isOpen,

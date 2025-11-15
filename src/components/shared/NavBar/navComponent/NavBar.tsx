@@ -3,13 +3,13 @@ import React from "react";
 import { Navbar } from "../navbar";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { RootState } from "@/src/redux/store";
+import { RootState } from "@/redux/store";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
-} from "@/src/components/pages/dashboardLayout/dropdown-menu";
+} from "@/components/pages/dashboardLayout/dropdown-menu";
 import Image from "next/image";
-import { Button } from "@/src/components/ui/button/Button";
+import { Button } from "@/components/ui/button/Button";
 import Logo from "../../logo/Logo";
 
 const NavBar = () => {

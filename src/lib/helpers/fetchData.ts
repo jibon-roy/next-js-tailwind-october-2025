@@ -1,4 +1,4 @@
-import envConfig from "@/src/utils/envConfig";
+import envConfig from "@/utils/envConfig";
 
 /**
  * Centralized Constant Tags — not overridable anywhere else

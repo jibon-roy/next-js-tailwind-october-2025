@@ -1,6 +1,6 @@
-'use client';
+"use client";
 import React from "react";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { motion, HTMLMotionProps } from "framer-motion";
 
@@ -82,31 +82,45 @@ export const Grid = React.forwardRef<HTMLDivElement, GridProps>(
     },
     ref
   ) => {
-    const Comp = animate ? motion[Component as keyof typeof motion] || motion.div : Component;
-    
+    const Comp = animate
+      ? motion[Component as keyof typeof motion] || motion.div
+      : Component;
+
     let responsiveClasses = "";
-    
+
     if (responsive) {
       if (responsive.sm) {
-        if (responsive.sm.cols) responsiveClasses += ` sm:grid-cols-${responsive.sm.cols}`;
-        if (responsive.sm.gap) responsiveClasses += ` sm:gap-${responsive.sm.gap}`;
+        if (responsive.sm.cols)
+          responsiveClasses += ` sm:grid-cols-${responsive.sm.cols}`;
+        if (responsive.sm.gap)
+          responsiveClasses += ` sm:gap-${responsive.sm.gap}`;
       }
       if (responsive.md) {
-        if (responsive.md.cols) responsiveClasses += ` md:grid-cols-${responsive.md.cols}`;
-        if (responsive.md.gap) responsiveClasses += ` md:gap-${responsive.md.gap}`;
+        if (responsive.md.cols)
+          responsiveClasses += ` md:grid-cols-${responsive.md.cols}`;
+        if (responsive.md.gap)
+          responsiveClasses += ` md:gap-${responsive.md.gap}`;
       }
       if (responsive.lg) {
-        if (responsive.lg.cols) responsiveClasses += ` lg:grid-cols-${responsive.lg.cols}`;
-        if (responsive.lg.gap) responsiveClasses += ` lg:gap-${responsive.lg.gap}`;
+        if (responsive.lg.cols)
+          responsiveClasses += ` lg:grid-cols-${responsive.lg.cols}`;
+        if (responsive.lg.gap)
+          responsiveClasses += ` lg:gap-${responsive.lg.gap}`;
       }
       if (responsive.xl) {
-        if (responsive.xl.cols) responsiveClasses += ` xl:grid-cols-${responsive.xl.cols}`;
-        if (responsive.xl.gap) responsiveClasses += ` xl:gap-${responsive.xl.gap}`;
+        if (responsive.xl.cols)
+          responsiveClasses += ` xl:grid-cols-${responsive.xl.cols}`;
+        if (responsive.xl.gap)
+          responsiveClasses += ` xl:gap-${responsive.xl.gap}`;
       }
     }
-    
+
     const gridProps = {
-      className: cn(gridVariants({ cols, rows, flow, gap }), responsiveClasses, className),
+      className: cn(
+        gridVariants({ cols, rows, flow, gap }),
+        responsiveClasses,
+        className
+      ),
       ref,
       ...props,
       ...(animate ? motionProps : {}),

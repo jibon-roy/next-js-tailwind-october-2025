@@ -1,5 +1,5 @@
-import type { BaseUser } from "@/src/lib/helpers/cookies/userCookie";
-import { fetchData } from "@/src/lib/helpers/fetchData";
+import type { BaseUser } from "@/lib/helpers/cookies/userCookie";
+import { fetchData } from "@/lib/helpers/fetchData";
 
 type GetUserResponse = { user: BaseUser | null };
 type CommonOk = { ok: true };

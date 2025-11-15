@@ -1,4 +1,4 @@
-import ThemeButton from "@/src/components/ui/theme/ThemeButton";
+import ThemeButton from "@/components/ui/theme/ThemeButton";
 import Image from "next/image";
 import Link from "next/link";
 

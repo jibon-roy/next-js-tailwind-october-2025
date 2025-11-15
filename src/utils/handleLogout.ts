@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Swal from "sweetalert2";
 import { Dispatch } from "redux";
-import { logout } from "@/src/redux/features/auth/authSlice";
+import { logout } from "@/redux/features/auth/authSlice";
 
 export const logoutHandler = async (dispatch: Dispatch, router: any) => {
   try {

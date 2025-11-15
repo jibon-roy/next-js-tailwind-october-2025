@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { initUserCookie } from "@/src/lib/helpers/cookies/userCookie";
+import { initUserCookie } from "@/lib/helpers/cookies/userCookie";
 
 // GET /api/user/init -> initializes the encrypted cookie with null
 export async function GET() {

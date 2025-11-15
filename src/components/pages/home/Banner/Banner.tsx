@@ -1,7 +1,7 @@
 "use client";
 import heroBg from "@/assets/images/herobg.png";
 import heroiamge from "@/assets/images/heroiamge.png";
-import { Container } from "@/src/components/ui-library/container";
+import { Container } from "@/components/ui-library/container";
 import Image from "next/image";
 
 const Banner = () => {

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import {
   getUserFromCookie,
   setUserCookie,
-} from "@/src/lib/helpers/cookies/userCookie";
+} from "@/lib/helpers/cookies/userCookie";
 
 // GET /api/user -> returns the decrypted user from the encrypted HttpOnly cookie
 export async function GET() {

@@ -7,7 +7,7 @@ import type { NavbarProps, NavItem, DropdownItem } from "./types";
 import { Drawer } from "./drawer";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-import { RootState } from "@/src/redux/store";
+import { RootState } from "@/redux/store";
 
 export const Navbar = ({
   logo,

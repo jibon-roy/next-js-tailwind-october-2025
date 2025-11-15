@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { BaseUser } from "@/src/lib/helpers/cookies/userCookie";
+import type { BaseUser } from "@/lib/helpers/cookies/userCookie";
 import {
   getCurrentUser,
   setUserRemote,
   logoutRemote,
   initUserCookieRemote,
-} from "@/src/lib/helpers/userCookieClient";
+} from "@/lib/helpers/userCookieClient";
 
 type Status = {
   loading: boolean;

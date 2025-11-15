@@ -23,7 +23,7 @@ export default async function DemoPage() {
         userId?: number;
       }[]
     | undefined;
-  console.log(data);
+
   if (!data) {
     return (
       <div className="max-w-3xl mx-auto py-16 px-4 text-center">

@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import ReduxStoreProvider from "@/redux/ReduxStoreProvider";
 import ServiceWorkerRegister from "@/components/pwa/ServiceWorkerRegister";
+import SessionProviderForNextAuth from "@/nextAuth/SessionProviderForNextAuth";
 
 export const metadata: Metadata = {
   // Basic Info
@@ -163,10 +164,12 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body className={`antialiased`}>
         <ReduxStoreProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="bg-white dark:bg-black">{children}</div>
-            <ServiceWorkerRegister />
-          </ThemeProvider>
+          <SessionProviderForNextAuth>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="bg-white dark:bg-black">{children}</div>
+              <ServiceWorkerRegister />
+            </ThemeProvider>
+          </SessionProviderForNextAuth>
         </ReduxStoreProvider>
       </body>
     </html>

@@ -11,19 +11,36 @@ export default function ServiceWorkerRegister(): null {
     const registerSW = async () => {
       try {
         const reg = await navigator.serviceWorker.register("/sw.js");
-        // Optional: listen for updates
+        console.info("ServiceWorker registered:", reg);
+
+        // If there's already a waiting worker, it's an update
         if (reg.waiting) {
-          // there is an updated SW waiting
+          console.info("ServiceWorker update waiting to activate");
         }
+
+        // Listen for updates and state changes to surface useful debug info
         reg.addEventListener("updatefound", () => {
           const newWorker = reg.installing;
           if (!newWorker) return;
+          console.info("ServiceWorker update found, installing...");
           newWorker.addEventListener("statechange", () => {
-            // states: installing -> installed -> activating -> activated
+            console.info("ServiceWorker state:", newWorker.state);
+            // Example: when `installed` and page already controlled, a new SW is available
+            if (
+              newWorker.state === "installed" &&
+              navigator.serviceWorker.controller
+            ) {
+              console.info(
+                "New ServiceWorker installed and waiting — consider prompting user to refresh."
+              );
+            }
           });
         });
-      } catch {
-        // swallow registration errors to avoid build/runtime issues
+      } catch (err) {
+        // log errors so we don't silently fail to register (helps debugging)
+        // In some environments (blocked by CSP, HTTPS missing, or 404 for /sw.js)
+        // registration can fail — surfacing the error is helpful.
+        console.error("ServiceWorker registration failed:", err);
       }
     };
 

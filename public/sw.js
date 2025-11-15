@@ -17,7 +17,25 @@ const PRECACHE_URLS = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
+    caches.open(CACHE_NAME).then(async (cache) => {
+      // Use Promise.allSettled so a single missing/404 asset doesn't fail the whole install.
+      const results = await Promise.allSettled(
+        PRECACHE_URLS.map((url) => cache.add(url))
+      );
+      const rejected = results.filter((r) => r.status === "rejected");
+      if (rejected.length > 0) {
+        // log which precache entries failed (helps debugging missing files)
+        try {
+          const failedUrls = rejected.map((r, i) => {
+            // attempt to map to the URL using the same index in PRECACHE_URLS
+            return PRECACHE_URLS[i];
+          });
+          console.warn("Some precache entries failed:", failedUrls);
+        } catch {
+          // ignore logging errors in the worker
+        }
+      }
+    })
   );
   self.skipWaiting();
 });

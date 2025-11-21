@@ -1,4 +1,4 @@
-**Next.js Starter (November 2025)**
+# Next.js Starter (November 2025)
 
 - **Project:** `next-js-starter-november-2025`
 - **Stack:** Next.js 16, React 19, TypeScript, Tailwind CSS v4, Redux Toolkit, NextAuth, PWA
